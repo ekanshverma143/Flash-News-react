@@ -1,6 +1,6 @@
-# Getting Started with Create React App
+# About Flash News App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project provides user daily news , made on react with help of newsapi
 
 ## Available Scripts
 
