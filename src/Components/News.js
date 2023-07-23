@@ -6,7 +6,8 @@ export class News extends Component {
         super();
         this.state ={
             articles: [],
-            loading: false
+            loading: false,
+            page:1
         }
 
     }
@@ -18,10 +19,28 @@ export class News extends Component {
         console.log (parsedData);
         this.setState({articles: parsedData.articles})
     }
+    handleNextclick=async()=>{
+        let url = `https://newsapi.org/v2/top-headlines?country=in&apiKey=dac49715c6b24e0ab1fe9c7f953ae97a&page=${this.state.page+1}`;
+        let data= await fetch(url);
+        let parsedData = await data.json()
+        console.log (parsedData);
+        this.setState({page: this.state.page+1,
+                         articles: parsedData.articles
+        })
+    }
+    handlePrevclick= async()=>{
+        let url = `https://newsapi.org/v2/top-headlines?country=in&apiKey=dac49715c6b24e0ab1fe9c7f953ae97a&page=${this.state.page-1}`;
+        let data= await fetch(url);
+        let parsedData = await data.json()
+        console.log (parsedData);
+        this.setState({page: this.state.page-1,
+            articles: parsedData.articles
+        })
+    }
   render() {
     return (
       <div className='container my-3'>
-           <h2>Top Headlines</h2>
+           <h1>Top Headlines</h1>
            <div className="row">
                {this.state.articles.map((element )=>{
                    return <div className="col-md-3" key={element.url}>
@@ -29,6 +48,11 @@ export class News extends Component {
                     </div>
 
                })}
+               <div className="container d-flex justify-content-center">
+               <button type="button" class="btn btn-dark my-3 mx-3 " onClick={this.handlePrevclick}>Previous</button>
+               <button type="button" class="btn btn-dark my-3 mx-3"  onClick={this.handleNextclick}>Next</button>
+               </div>
+               
                
               
            </div>
