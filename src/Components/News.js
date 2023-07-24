@@ -1,9 +1,27 @@
 import React, { Component } from 'react'
 import NewsItem from './NewsItem'
 import Spinner from './Spinner';
+import PropTypes from 'prop-types'
+import React from "react";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
 
 export class News extends Component {
-    constructor(){
+    static defaultProps= {
+        country:'in',
+        category:'general'
+
+    }
+    static propType={
+        country :PropTypes.string,
+        category: PropTypes.string
+    }
+
+        constructor(){
         super();
         this.state ={
             articles: [],
@@ -14,7 +32,7 @@ export class News extends Component {
     }
     async componentDidMount(){
       
-        let url = "https://newsapi.org/v2/top-headlines?country=in&apiKey=dac49715c6b24e0ab1fe9c7f953ae97a";
+        let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=dac49715c6b24e0ab1fe9c7f953ae97a`;
         this.setState({Loading: true });
         let data= await fetch(url);
         let parsedData = await data.json()
@@ -24,7 +42,7 @@ export class News extends Component {
         })
     }
     handleNextclick=async()=>{
-        let url = `https://newsapi.org/v2/top-headlines?country=in&apiKey=dac49715c6b24e0ab1fe9c7f953ae97a&page=${this.state.page+1}`;
+        let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=dac49715c6b24e0ab1fe9c7f953ae97a&page=${this.state.page+1}`;
         this.setState({Loading: true });
         let data= await fetch(url);
         let parsedData = await data.json()
@@ -34,7 +52,7 @@ export class News extends Component {
         })
     }
     handlePrevclick= async()=>{
-        let url = `https://newsapi.org/v2/top-headlines?country=in&apiKey=dac49715c6b24e0ab1fe9c7f953ae97a&page=${this.state.page-1}`;
+        let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=dac49715c6b24e0ab1fe9c7f953ae97a&page=${this.state.page-1}`;
         this.setState({Loading: true})
         let data= await fetch(url);
         let parsedData = await data.json()
@@ -47,7 +65,8 @@ export class News extends Component {
   render() {
     return (
       <div className='container my-3'>
-           <h1>Top Headlines</h1>
+          <h1 className="text-center" style={{margin:'35px 0px'}}>Top Headlines</h1>
+           
            {this.state.Loading && <Spinner/>}
           
            <div className="row">
@@ -58,8 +77,8 @@ export class News extends Component {
 
                })}
                <div className="container d-flex justify-content-center">
-               <button type="button" class="btn btn-dark my-3 mx-3 " onClick={this.handlePrevclick}>Previous</button>
-               <button type="button" class="btn btn-dark my-3 mx-3"  onClick={this.handleNextclick}>Next</button>
+               <button type="button" className="btn btn-dark my-3 mx-3 " onClick={this.handlePrevclick}>Previous</button>
+               <button type="button" className="btn btn-dark my-3 mx-3"  onClick={this.handleNextclick}>Next</button>
                </div>
                
                

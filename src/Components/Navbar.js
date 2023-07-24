@@ -18,9 +18,15 @@ export class Navbar extends Component {
         <li className="nav-item">
           <a className="nav-link active" aria-current="page" href="/News.js">Home</a>
         </li>
-        <li className="nav-item">
-          <a className="nav-link" href="?News.js">About Us</a>
-        </li>
+        <li className="nav-item"><a className="nav-link" href="/News.js">About Us</a></li>
+         <li className="nav-item"><a className="nav-link" href="/News.js">business</a></li>
+         <li className="nav-item"><a className="nav-link" href="/News.js">entertainment</a></li>
+         <li className="nav-item"><a className="nav-link" href="/News.js">general</a></li>
+         <li className="nav-item"><a className="nav-link" href="/News.js">health</a></li>
+         <li className="nav-item"><a className="nav-link" href="/News.js">science</a></li>
+         <li className="nav-item"><a className="nav-link" href="/News.js">sports</a></li>
+         <li className="nav-item"><a className="nav-link" href="/News.js">technology</a></li>
+        
         
         
       </ul>
