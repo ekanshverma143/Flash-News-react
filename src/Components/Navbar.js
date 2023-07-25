@@ -19,13 +19,13 @@ export class Navbar extends Component {
           <a className="nav-link active" aria-current="page" href="/News.js">Home</a>
         </li>
         <li className="nav-item"><a className="nav-link" href="/News.js">About Us</a></li>
-         <li className="nav-item"><a className="nav-link" href="/News.js">business</a></li>
-         <li className="nav-item"><a className="nav-link" href="/News.js">entertainment</a></li>
-         <li className="nav-item"><a className="nav-link" href="/News.js">general</a></li>
-         <li className="nav-item"><a className="nav-link" href="/News.js">health</a></li>
-         <li className="nav-item"><a className="nav-link" href="/News.js">science</a></li>
-         <li className="nav-item"><a className="nav-link" href="/News.js">sports</a></li>
-         <li className="nav-item"><a className="nav-link" href="/News.js">technology</a></li>
+         <li className="nav-item"><a className="nav-link" href="/business">Business</a></li>
+         <li className="nav-item"><a className="nav-link" href="/entertainment">Entertainment</a></li>
+         <li className="nav-item"><a className="nav-link" href="/general">General</a></li>
+         <li className="nav-item"><a className="nav-link" href="/health">Health</a></li>
+         <li className="nav-item"><a className="nav-link" href="/science">Science</a></li>
+         <li className="nav-item"><a className="nav-link" href="/sports">Sports</a></li>
+         <li className="nav-item"><a className="nav-link" href="/technology">Technology</a></li>
         
         
         
